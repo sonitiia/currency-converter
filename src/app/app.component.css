@@ -1,0 +1,9 @@
+.responsive-toolbar {
+  height: 100px;
+}
+
+@media (min-width: 500px) {
+  .responsive-toolbar {
+    height: 56px;
+  }
+}

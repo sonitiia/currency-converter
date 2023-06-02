@@ -1,0 +1,19 @@
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@media (min-width: 500px) {
+  .header-wrapper {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
+  }
+}
+
+h2,
+h3 {
+  margin: 0;
+}

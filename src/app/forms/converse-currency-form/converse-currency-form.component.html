@@ -1,26 +1,58 @@
-<div>
-  <p>Convert</p>
-  <input
-    type="number"
-    #fromInput
-    [value]="toInputValue"
-    (input)="convertFrom(fromInput.value, fromSelect.value, toSelect.value)"
-  />
-  <select name="fromCurrency" #fromSelect>
-    <option value="UAH">Ukrainian hryvnia</option>
-    <option value="USD">U.S. dollar</option>
-    <option value="EUR">Euro</option>
-  </select>
-  <p>to</p>
-  <input
-    type="number"
-    #toInput
-    [value]="fromInputValue"
-    (input)="convertTo(fromSelect.value, toInput.value, toSelect.value)"
-  />
-  <select name="toCurrency" #toSelect>
-    <option value="UAH">Ukrainian hryvnia</option>
-    <option value="USD">U.S. dollar</option>
-    <option value="EUR">Euro</option>
-  </select>
-</div>
+<form class="converse-currency-form">
+  <div class="form-field-from">
+    <mat-form-field class="form-field">
+      <input
+        matInput
+        matNativeControl
+        type="number"
+        #fromInput
+        [value]="toInputValue"
+        (input)="convertFrom(fromInput.value, fromSelect.value, toSelect.value)"
+        class="no-arrows"
+      />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-select
+        #fromSelect
+        [(value)]="selectedFrom"
+        (change)="
+          convertFrom(fromInput.value, fromSelect.value, toSelect.value)
+        "
+      >
+        <mat-option
+          *ngFor="let currencyCode of currencyCodes"
+          [value]="currencyCode.value"
+        >
+          {{ currencyCode.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form-field-to">
+    <mat-form-field class="form-field">
+      <input
+        matInput
+        matNativeControl
+        type="number"
+        #toInput
+        [value]="fromInputValue"
+        (input)="convertTo(fromSelect.value, toInput.value, toSelect.value)"
+        class="no-arrows"
+      />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-select
+        #toSelect
+        [(value)]="selectedTo"
+        (change)="convertTo(fromSelect.value, toInput.value, toSelect.value)"
+      >
+        <mat-option
+          *ngFor="let currencyCode of currencyCodes"
+          [value]="currencyCode.value"
+        >
+          {{ currencyCode.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>
