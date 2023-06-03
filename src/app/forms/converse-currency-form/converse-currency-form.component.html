@@ -22,6 +22,7 @@
         <mat-option
           *ngFor="let currencyCode of currencyCodes"
           [value]="currencyCode.value"
+          [disabled]="currencyCode.value === selectedTo"
         >
           {{ currencyCode.viewValue }}
         </mat-option>
@@ -49,6 +50,7 @@
         <mat-option
           *ngFor="let currencyCode of currencyCodes"
           [value]="currencyCode.value"
+          [disabled]="currencyCode.value === selectedFrom"
         >
           {{ currencyCode.viewValue }}
         </mat-option>

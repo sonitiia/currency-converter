@@ -18,8 +18,8 @@ export class ConverseCurrencyFormComponent {
     { value: 'EUR', viewValue: 'Euro' },
   ];
 
-  fromInputValue: any;
-  toInputValue: any;
+  fromInputValue: number = 0;
+  toInputValue: number = 0;
   fromSelectValue: any;
   toSelectValue: any;
 
